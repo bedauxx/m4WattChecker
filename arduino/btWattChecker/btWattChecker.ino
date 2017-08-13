@@ -1,31 +1,40 @@
 
-int xin;
-int yin;
-int zin;
-int dis;
+
+#include <Wire.h>
+#include <Adafruit_INA219.h>
+
+Adafruit_INA219 ina219;
+
+
 void setup() {
     Serial.begin(115200);
+    ina219.begin();
 }
 
 void loop() {
 
-    dis = analogRead(0);
-    xin = analogRead(1) - 512;
-    yin = analogRead(2) - 512;
-    zin = analogRead(3) - 512;
+  float shuntvoltage = 0;
+  float busvoltage = 0;
+  float current_mA = 0;
+  float loadvoltage = 0;
 
-digitalWrite(3, LOW); 
-analogWrite(2, dis/2); 
-
+ // shuntvoltage = ina219.getShuntVoltage_mV();
+  busvoltage = ina219.getBusVoltage_V();
+  current_mA = ina219.getCurrent_mA() /1000 ;
+ // loadvoltage = busvoltage + (shuntvoltage / 1000);
     
-     Serial.println(millis());
-     Serial.print("X:");
-     Serial.println(xin);
-     Serial.print("Y:");
-     Serial.println(yin);
-     Serial.print("Z:");
-     Serial.println(zin);
-     Serial.print("distance:");
-     Serial.println(dis);
-     delay(500) ;
+    if(busvoltage==0){
+         delay(100);
+    }else if(busvoltage>5){
+         delay(100);
+    }else{
+         Serial.print(busvoltage);
+         Serial.print("V,");
+         Serial.print(current_mA);
+         Serial.println("A");
+         delay(250);
+    }
+
 }
+
+
