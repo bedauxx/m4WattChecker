@@ -21,6 +21,7 @@
 * INA219 Current Sensor
 * 電源(3V) LI-POとかコイン電池とコネクタ
 * BlueToothモジュール
+* usb-シリアル変換(bluetoothモジュール設定用)
 * その他ユニバーサル基板とかリード線とかハンダとか
 
 ## 回路図
