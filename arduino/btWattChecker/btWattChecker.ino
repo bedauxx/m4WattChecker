@@ -1,6 +1,6 @@
 
 
-#include <Wire.h>
+//#include <Wire.h>
 #include <Adafruit_INA219.h>
 
 Adafruit_INA219 ina219;
@@ -28,7 +28,7 @@ void loop() {
          Serial.print("V,");
          Serial.print(current_mA);
          Serial.println("A");
-         delay(250);
+         delay(333);
     }
 
 }
