@@ -24,7 +24,9 @@ void loop() {
     }else if(busvoltage>5){
          delay(100);
     }else{
+         Serial.print(busvoltage);
          Serial.print("V,");
+         Serial.print(current_mA);
          Serial.println("A");
          delay(250);
     }
