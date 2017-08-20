@@ -24,10 +24,22 @@
 * usb-シリアル変換(bluetoothモジュール設定用)
 * その他ユニバーサル基板とかリード線とかハンダとか
 
-## 回路図
+##INA219を使用した試作機を運用して出た問題を修正した新バージョンを作成しました。
+* センサーの変更（INA260）により15Aまでの計測が可能になりました。
+* Li-Poのケーブルが走行の衝撃に耐えられず破損が頻発したのでボタン電池(CR2032)に変更しました。
+* 試作機上のbtモジュールをBLE対応に変更しましたが、回路・ソフトウェアの変更はありません。
+    + BLEを使用することでiosアプリ JBWaveでシリアルモニタ同様の機能が使用できました。
 
+###必要なもの(ina260バージョン)
+* INA260 【高精度】I2Cディジタル電流・電圧・電力計モジュール(STRAWBERRY LINUX) <http://strawberry-linux.com/catalog/items?code=11260>
+* INA260用ライブラリ <https://github.com/tronicgr/INA260-current-sensor>
+
+## 回路図
+* ina219バージョン
 ![回路図](https://github.com/bedauxx/m4WattChecker/wiki/images/current_sensor2_1.png)
 
+* ina260バージョン
+![回路図](https://github.com/bedauxx/m4WattChecker/wiki/images/current_sensor2_2.png)
 
 ## 作り方
 
@@ -37,7 +49,8 @@
     + 使用するPCからbtで認識できることを確認する
 * Arduino IDEにINA219のライブラリを導入
     + その他TrinketやI2C関係も動作するよう設定しておく
-* TrinketにbtWattChecker.inoを書き込む
+* ina219バージョンはTrinketにbtWattChecker.inoを書き込む
+* ina260バージョンはTrinketにm4WattChecker.inoを書き込む
 * 回路図に従って基板を作成
 
 ## 使用方法
@@ -57,6 +70,7 @@
 * 正常に動作した場合、電圧・消費電流が表示されます。
     + 入力電圧が0Vのときは表示されません。ミニ四駆の電源をONにし、正常に電流が流れた際表示されます。
     + まれに5V以上の電圧を誤検知する為、5v以上の電圧時も表示をしない設定にしています。
+* ※ina260バージョンは上記と回路図を参考に接続してください。こちらは15Aまで計測可能です。
 
 
 ## 注意点
