@@ -26,7 +26,7 @@
 
 ## 回路図
 
-![回路図](https://github.com/bedauxx/m4WattChecker/wiki/images/current_sensor2.png)
+![回路図](https://github.com/bedauxx/m4WattChecker/wiki/images/current_sensor2_1.png)
 
 
 ## 作り方
