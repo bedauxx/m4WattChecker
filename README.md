@@ -47,7 +47,7 @@
     + ※モジュールによりますが、ATコマンドでの設定が必要です。ATコマンドがなんぞや？という方はググってみてください。
     + ※作者もATコマンドは全く知りませんでしたがググって数時間で設定できました。
     + 使用するPCからbtで認識できることを確認する
-* Arduino IDEにINA219のライブラリを導入
+* Arduino IDEにカレントセンサのライブラリを導入
     + その他TrinketやI2C関係も動作するよう設定しておく
 * ina219バージョンはTrinketにbtWattChecker.inoを書き込む
 * ina260バージョンはTrinketにm4WattChecker.inoを書き込む
